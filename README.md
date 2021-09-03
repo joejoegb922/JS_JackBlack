@@ -18,8 +18,7 @@ Functionality And MVPs
         <li> Double Down on one card</li>
         <li> Have fun </li>
     </ul>
-    <a href="https://bicyclecards.com/how-to-play/blackjack/"> HERE </a>
-    <p>is a more indepth look at the game.</p>
+    <a href="https://bicyclecards.com/how-to-play/blackjack/"> HERE </a><p>is a more indepth look at the game.</p>
 <h2>
 Wireframes
 </h2>
