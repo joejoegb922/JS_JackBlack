@@ -1,6 +1,5 @@
 <h1>JackBlack</h1>
-
-##Background 
+<h1>Background</h1>
 
 BlackJack or 21 is a common card game played in casinos. The goal of the game is to draw 
 cards to obtain a value of 21. Your opponent will be the dealer who is also trying to reach
