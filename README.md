@@ -1,4 +1,4 @@
-# JS_JackBlack
+<h1>JackBlack</h1>
 
 ##Background 
 
@@ -14,3 +14,6 @@ cards to obtain a value of 21. Your opponent will be the dealer who is also tryi
 ##Technologies
 
 ##implementation Timeline
+
+
+
