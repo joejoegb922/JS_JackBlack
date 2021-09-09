@@ -58,6 +58,8 @@ const sources = {
     "hidden" : "../src/card_imgs/hidden.jpeg"
 }
 
+
+
 window.addEventListener('DOMContentLoaded', (event) => {
     const canvasElement = document.getElementById("game-canvas");
     const ctx = canvasElement.getContext("2d");
@@ -76,9 +78,9 @@ window.addEventListener('DOMContentLoaded', (event) => {
         card2.src = sources[game.player.hand[1].source]
         dcard1.src = sources[game.computer.hand[0].source]
         dcard2.src = sources["hidden"]
-        
-        
-        card1.onload = function () { 
+        let xPos = 500;
+
+        card1.onload = function () {
             ctx.drawImage(card1, 500, 500, 75, 100);
         }
         card2.onload = function () {
@@ -90,13 +92,13 @@ window.addEventListener('DOMContentLoaded', (event) => {
         dcard2.onload = function () {
             ctx.drawImage(dcard2, 550, 100, 75, 100);
         }
-        
+
         if (game.player.value() === 21) {
             setTimeout(function () {
                 alert("You Win BROH")
             }, 2000);
         }
-        let xPos = 500;
+
         Hit.addEventListener("click", function () {
             game.hit();
             let index = game.player.hand.length - 1;
@@ -104,21 +106,20 @@ window.addEventListener('DOMContentLoaded', (event) => {
             hitCard.src = sources[game.player.hand[index].source];
 
             hitCard.onload = function () {
-                ctx.drawImage(hitCard, xPos+100, 500, 75, 100);
+                ctx.drawImage(hitCard, xPos + 100, 500, 75, 100);
             }
             xPos += 100;
             if (game.player.value() > 21) {
                 alert("You Lose Broh");
             }
         })
-        
         Stand.addEventListener("click", function () {
             dcard2.src = sources[game.computer.hand[1].source];
             dcard2.onload = function () {
                 ctx.drawImage(dcard2, 550, 100, 75, 100);
             }
             game.stand();
-            
+
             let i = 2;
             let dxPos = 550;
             while (i < game.computer.hand.length) {
@@ -132,32 +133,29 @@ window.addEventListener('DOMContentLoaded', (event) => {
                 dxPos += 100;
                 i += 1;
             }
-        }
+            if (game.computer.value() > 21) {
+                setTimeout(function () {
+                    alert("You Win BROH")
+                }, 2000);
+                return;
+            } else if (game.computer.value() < game.player.value()) {
+                setTimeout(function () {
+                    alert("You Win BROH")
+                }, 2000);
+                return;
+
+            } else if (game.computer.value() > game.player.value()) {
+                setTimeout(function () {
+                    alert("You Lose BROH")
+                }, 2000);
+                return;
+            } else {
+                setTimeout(function () {
+                    alert("You Tied BROH")
+                }, 2000);
+                return;
+            }
+        })
     })
 })
-});
 
-function endGame(){
-    if (game.computer.value() > 21) {
-        setTimeout(function () {
-            alert("You Win BROH")
-        }, 2000);
-        return ;
-    } else if (game.computer.value() < game.player.value()){
-        setTimeout(function () {
-            alert("You Win BROH")
-        }, 2000);
-        return ;
-
-    } else if (game.computer.value() > game.player.value()){
-        setTimeout(function () {
-            alert("You Lose BROH")
-        }, 2000);
-        return ;
-    } else {
-        setTimeout(function () {
-            alert("You Tied BROH")
-        }, 2000);
-        return ;
-    }
-}
