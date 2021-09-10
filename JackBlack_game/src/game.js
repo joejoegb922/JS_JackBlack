@@ -20,8 +20,6 @@ class Game {
         this.player.hand.push(this.deck.cards.shift())
         this.computer.hand.push(this.deck.cards.shift())
         this.computer.hand.push(this.deck.cards.shift())
-        if (this.player.value() === 21) return this.winGame();
-        // console.log(this.player.hand[0].value)
         console.log(this.player.hand[0].source)
         console.log(this.computer.hand);
         console.log(this.player.hand);
